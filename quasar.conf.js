@@ -59,14 +59,25 @@ module.exports = function (ctx) {
         'QListHeader',
         'QItem',
         'QItemMain',
-        'QItemSide'
+        'QItemSide',
+        'QPullToRefresh',
+        'QAjaxBar',
+        'QCard',
+        'QCardTitle',
+        'QCardMain',
+        'QCardMedia',
+        'QCardSeparator',
+        'QCardActions'
       ],
       directives: [
-        'Ripple'
+        'Ripple',
+        'GoBack'
       ],
       // Quasar plugins
       plugins: [
-        'Notify'
+        'Notify',
+        'Loading',
+        'LocalStorage'
       ]
     },
     // animations: 'all' --- includes all animations

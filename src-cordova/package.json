@@ -5,12 +5,18 @@
     "description": "A sample Apache Cordova application that responds to the deviceready event.",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "android:build": "quasar build -m cordova -T android -t mat",
+        "android:key": "keytool -genkey -v -keystore android_key.keystore -alias testalias -keyalg RSA -keysize 2048 -validity 3650",
+        "android:release": "npm run android:build && jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore android_key.keystore src-cordova/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk testalias",
+        "electron:dev": "quasar dev -m electron",
+        "prepack:win": "quasar build -c -m electron -t mat -T win32 -A ia32",
+        "build:win": "npm run prepack:win && build --win --ia32 --project dist/electron-mat/UnPackaged/ --prepackaged ../quasar-electron-win32-ia32"
     },
     "author": "Apache Cordova Team",
     "license": "Apache-2.0",
     "dependencies": {
-        "cordova-android": "^7.0.0",
+        "cordova-android": "^5.2.2",
         "cordova-plugin-whitelist": "^1.3.3"
     },
     "cordova": {

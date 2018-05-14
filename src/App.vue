@@ -6,7 +6,10 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  mounted: function () {
+    this.$store.dispatch('game/changeTime')
+  }
 }
 </script>
 

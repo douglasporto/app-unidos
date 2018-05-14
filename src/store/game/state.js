@@ -1,5 +1,6 @@
 export default {
   time: [],
   JogosRealizados: [],
-  JogosPendentes: []
+  JogosPendentes: [],
+  last_up: ''
 }
