@@ -51,6 +51,13 @@ export const changeTimeApi = async ({ commit }) => {
     let lastup = moment().format('D/MM/YYYY - h:mm')
     LocalStorage.set('team_last_up', lastup)
     commit('CHANGE_LASTUP', lastup)
+    Notify.create({
+      message: 'Jogos Atualizados!',
+      position: 'center',
+      color: 'secondary',
+      timeout: 2000,
+      icon: 'fa-check'
+    })
   } catch (err) {
     console.log('erro', err)
     Notify.create({

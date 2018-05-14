@@ -2,23 +2,25 @@
   <q-pull-to-refresh :handler="refresher">
     <q-page class="img">
       <!--<img alt="Brain logo" src="~assets/brain.png" style="width: 90%;">-->
-      <q-list highlight>
+      <q-list>
         <q-list-header>
           Próximos Jogos
           <div class="last_up">Última atualização: {{ date_last }}</div>
         </q-list-header>
-        <q-item v-for="p in proximos" :key="p.date">
+        <q-item v-for="(p, index) in proximos" :key="index">
           <q-card inline class="card-game">
             <q-card-title>
               {{ p.adversary }}
             </q-card-title>
             <q-card-main>
-              <p><q-icon name="place" /> {{ p.local }}</p>
+              <p>
+                <q-btn flat :label="p.local" @click="pushMaps(index)" icon="place"/>
+              </p>
             </q-card-main>
             <q-card-separator />
             <q-card-actions>
               <q-btn flat round dense icon="event" />
-              <q-btn flat :label="p.date | date" />
+              <q-btn flat :label="p.date | date" @click="pushCalendar(index)" />
             </q-card-actions>
           </q-card>
         </q-item>
@@ -27,6 +29,7 @@
   </q-pull-to-refresh>
 </template>
 <script>
+import { openURL } from 'quasar'
 export default {
   name: 'Games',
   computed: {
@@ -38,18 +41,32 @@ export default {
     }
   },
   methods: {
+    openURL,
     refresher (done) {
       setTimeout(() => {
         done()
         this.$store.dispatch('game/changeTimeApi')
-        this.$q.notify({
-          message: 'Jogos Atualizados!',
-          position: 'center',
-          color: 'secondary',
-          timeout: 2000,
-          icon: 'wifi'
-        })
       }, 1000)
+    },
+    pushCalendar (i) {
+      let day = this.dateCalendar(this.proximos[i].date)
+      let url = 'https://www.google.com/calendar/render?action=TEMPLATE&text=Jogo+Unidos+do+Final&details=Adversario+' + this.proximos[i].adversary + '&dates=' + day
+      openURL(url)
+    },
+    pushMaps (i) {
+      let local = this.proximos[i].local
+      let url = 'https://maps.google.com.br/maps?q=' + local.replace(' ', '+')
+      openURL(url)
+    },
+    dateCalendar: function (date) {
+      let d = date.substr(8, 2)
+      let m = date.substr(5, 2)
+      let y = date.substr(0, 4)
+      let hi = (parseInt(date.substr(11, 2)) + 3) + date.substr(13, 3) + '00'
+      let hf = (parseInt(date.substr(11, 2)) + 5) + date.substr(13, 3) + '00'
+      let datein = y + m + d + 'T' + hi.replace(':', '') + 'Z/'
+      let datefin = y + m + d + 'T' + hf.replace(':', '') + 'Z'
+      return datein + datefin
     }
   },
   filters: {
