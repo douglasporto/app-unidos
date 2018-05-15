@@ -34,10 +34,20 @@
         <q-list-header class="white">
           <bm-sidebar-header />
         </q-list-header>
-        <q-item @click.native="$router.replace('/games')">
-          <q-item-side icon="fas fa-futbol" />
-          <q-item-main label="Jogos" sublabel="Confira os próximos Jogos" />
-        </q-item>
+        <div class="list">
+          <q-item @click.native="$router.replace('/games')">
+            <q-item-side icon="fas fa-futbol" />
+            <q-item-main label="Jogos" sublabel="Confira os próximos Jogos" />
+          </q-item>
+          <q-item @click.native="openURL('https://www.facebook.com/unidosDoFinal')">
+            <q-item-side icon="fab fa-instagram" />
+            <q-item-main label="Instagram" sublabel="Siga-nos" />
+          </q-item>
+          <q-item @click.native="openURL('https://www.facebook.com/unidosDoFinal')">
+            <q-item-side icon="fab fa-facebook" />
+            <q-item-main label="Facebook" sublabel="Siga-nos" />
+          </q-item>
+        </div>
       </q-list>
     </q-layout-drawer>
 
@@ -99,8 +109,9 @@ export default {
 .sidebar
   color themeColor
   padding 0
-  :nth-child(2)
-      top 130px
+  .list
+    position relative
+    top 130px
   .q-list,
   .q-list-header
     padding 0
