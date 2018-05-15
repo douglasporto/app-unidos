@@ -16,7 +16,7 @@
 
         <q-toolbar-title>
           APP Unidos do Final
-          <div slot="subtitle">by Brain&Mind - Douglas Porto</div>
+          <div slot="subtitle">by Brain&Mind - Douglas</div>
         </q-toolbar-title>
       </q-toolbar>
     </q-layout-header>
