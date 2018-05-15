@@ -11,7 +11,8 @@ export default [
     component: () => import('layouts/default'),
     children: [
       // { path: '/', component: () => import('pages/index') }
-      { path: '/games', component: () => import('pages/games') }
+      { path: '/games', component: () => import('pages/games') },
+      { path: '/score', component: () => import('pages/score') }
     ]
   },
 

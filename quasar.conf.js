@@ -67,17 +67,22 @@ module.exports = function (ctx) {
         'QCardMain',
         'QCardMedia',
         'QCardSeparator',
-        'QCardActions'
+        'QCardActions',
+        'QInfiniteScroll',
+        'QSpinner',
+        'QSpinnerAudio'
       ],
       directives: [
         'Ripple',
-        'GoBack'
+        'GoBack',
+        'BackToTop'
       ],
       // Quasar plugins
       plugins: [
         'Notify',
         'Loading',
-        'LocalStorage'
+        'LocalStorage',
+        'AddressbarColor'
       ]
     },
     animations: 'all',
