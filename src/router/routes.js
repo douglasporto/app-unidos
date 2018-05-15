@@ -3,7 +3,7 @@ export default [
     path: '/',
     component: () => import('layouts/intro'),
     children: [
-      { path: '/', component: () => import('pages/index') }
+      { path: '/', component: () => import('pages/intro/index') }
     ]
   },
   {

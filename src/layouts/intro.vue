@@ -1,13 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-page-container>
-      <transition
-        appear
-        enter-active-class="animated bounceInLeft"
-        leave-active-class="animated bounceInLeft"
-      >
-        <router-view />
-      </transition>
+      <router-view />
       <q-ajax-bar ref="bar" :position="position" :reverse="reverse" :color="color" />
     </q-page-container>
   </q-layout>
