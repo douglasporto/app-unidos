@@ -22,7 +22,6 @@ export default {
   background linear-gradient(135deg, #00b4f0 6%,#FFF 63%)
   // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b4f0', endColorstr='#e5e5e5',GradientType=1 )
   padding 10px
-  position fixed
   width 100%
   .logo
     display inline-block
@@ -37,5 +36,5 @@ export default {
     font-weight 800
     position absolute
     right 15%
-    top 25%
+    top 5%
 </style>

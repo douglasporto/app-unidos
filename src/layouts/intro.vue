@@ -35,15 +35,3 @@ export default {
   }
 }
 </script>
-
-<style scope lang='stylus'>
-@import '~variables'
-.sidebar
-  color themeColor
-  padding 0
-  :nth-child(2)
-      top 130px
-  .q-list,
-  .q-list-header
-    padding 0
-</style>

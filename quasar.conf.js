@@ -70,7 +70,8 @@ module.exports = function (ctx) {
         'QCardActions',
         'QInfiniteScroll',
         'QSpinner',
-        'QSpinnerAudio'
+        'QSpinnerAudio',
+        'QScrollArea'
       ],
       directives: [
         'Ripple',

@@ -33,7 +33,7 @@
             v-back-to-top.animate="{offset: 500, duration: 200}"
             round
             color="primary"
-            class="fixed-bottom-right animate-pop"
+            class="fixed-bottom-right animate-pop shadow-8"
             style="margin: 0 15px 15px 0"
           >
             <q-icon name="keyboard_arrow_up" />

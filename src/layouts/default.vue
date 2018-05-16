@@ -15,8 +15,8 @@
         </q-btn>
 
         <q-toolbar-title>
-          APP Unidos do Final
-          <div slot="subtitle">by Brain&Mind - Douglas</div>
+          Unidos do Final
+          <!-- <div slot="subtitle">by Brain&Mind - Douglas</div> -->
         </q-toolbar-title>
       </q-toolbar>
     </q-layout-header>
@@ -34,25 +34,28 @@
         <q-list-header class="white">
           <bm-sidebar-header />
         </q-list-header>
-        <div class="list">
-          <q-item @click.native="$router.replace('/games')">
-            <q-item-side icon="fas fa-futbol" />
-            <q-item-main label="Jogos" sublabel="Confira os próximos Jogos" />
-          </q-item>
-          <q-item @click.native="$router.replace('/score')">
-            <q-item-side icon="fas fa-futbol" />
-            <q-item-main label="Placar" sublabel="Confira os resultados" />
-          </q-item>
-          <q-item @click.native="openURL('https://www.facebook.com/unidosDoFinal')">
+        <q-item @click.native="$router.replace('/games')">
+          <q-item-side icon="fas fa-calendar-alt" color="primary"/>
+          <q-item-main label="Jogos" sublabel="Confira os próximos Jogos" />
+        </q-item>
+        <q-item @click.native="$router.replace('/score')">
+          <q-item-side icon="fas fa-futbol" color="primary"/>
+          <q-item-main label="Resultados" sublabel="Confira nosso placar" />
+        </q-item>
+          <!-- <q-item @click.native="openURL('https://www.facebook.com/unidosDoFinal')">
             <q-item-side icon="fab fa-instagram" />
             <q-item-main label="Instagram" sublabel="Siga-nos" />
           </q-item>
           <q-item @click.native="openURL('https://www.facebook.com/unidosDoFinal')">
             <q-item-side icon="fab fa-facebook" />
             <q-item-main label="Facebook" sublabel="Siga-nos" />
-          </q-item>
-        </div>
+          </q-item> -->
       </q-list>
+      <div class="footer text-center">
+        <div class="div-icon"><q-btn flat icon="fab fa-instagram" @click.native="openURL('https://www.instagram.com/unidosdofinal')"/></div>
+        <div class="div-icon"><q-btn flat icon="fab fa-facebook" @click.native="openURL('https://www.facebook.com/unidosDoFinal')"/></div>
+        <div class="div-brain">Brain&Mind 2018 - Douglas Porto</div>
+      </div>
     </q-layout-drawer>
 
     <q-page-container>
@@ -108,15 +111,33 @@ export default {
 }
 </script>
 
-<style scope lang='stylus'>
+<style scoped lang='stylus'>
 @import '~variables'
 .sidebar
   color themeColor
   padding 0
-  .list
-    position relative
-    top 130px
   .q-list,
   .q-list-header
     padding 0
+.footer
+  background-color white
+  color white
+  bottom 0
+  font-style italic
+  font-size 0.8em
+  opacity 0.7
+  // padding 10px 20px
+  position absolute
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width 100%
+  .div-icon
+    background-color white
+    color themeColor
+    display inline-block
+    padding 10px 0
+    width 50%
+  .div-brain
+    background-color themeColor
+    padding 10px 0
 </style>
