@@ -71,7 +71,8 @@ module.exports = function (ctx) {
         'QInfiniteScroll',
         'QSpinner',
         'QSpinnerAudio',
-        'QScrollArea'
+        'QScrollArea',
+        'QCollapsible'
       ],
       directives: [
         'Ripple',

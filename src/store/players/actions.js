@@ -16,44 +16,44 @@ const api = 'http://localhost/api/v1'
 //   }
 // }
 
-export const changeTime = async ({ commit }) => {
+export const changePlayers = async ({ commit }) => {
   let payload
-  if (LocalStorage.get.item('team')) {
-    payload = JSON.parse(LocalStorage.get.item('team'))
-    commit('CHANGE_LASTUP', LocalStorage.get.item('team_last_up'))
+  if (LocalStorage.get.item('players')) {
+    payload = JSON.parse(LocalStorage.get.item('players'))
+    commit('CHANGE_LASTUP', LocalStorage.get.item('players_last_up'))
   } else {
     Loading.show()
     const response = await axios.get(
-      api + '/games'
+      api + '/players'
     )
     payload = response.data
-    payload = orderBy(payload, ['date'], ['desc'])
+    payload = orderBy(payload, ['gols'], ['desc'])
     //  add lastup
     let lastup = moment().format('D/MM/YYYY - h:mm')
-    LocalStorage.set('team_last_up', lastup)
+    LocalStorage.set('players_last_up', lastup)
     commit('CHANGE_LASTUP', lastup)
   }
   Loading.hide()
-  commit('CHANGE_TIME', payload)
-  LocalStorage.set('team', JSON.stringify(payload))
+  commit('CHANGE_PLAYERS', payload)
+  LocalStorage.set('players', JSON.stringify(payload))
 }
 
-export const changeTimeApi = async ({ commit }) => {
+export const changePlayersApi = async ({ commit }) => {
   try {
     const response = await axios.get(
-      api + '/games'
+      api + '/players'
     )
-    // add time
+    // add players
     let payload = response.data
-    payload = orderBy(payload, ['date'], ['desc'])
-    commit('CHANGE_TIME', payload)
-    LocalStorage.set('team', JSON.stringify(payload))
+    payload = orderBy(payload, ['gols'], ['desc'])
+    commit('CHANGE_PLAYERS', payload)
+    LocalStorage.set('players', JSON.stringify(payload))
     //  add lastup
     let lastup = moment().format('D/MM/YYYY - h:mm')
-    LocalStorage.set('team_last_up', lastup)
+    LocalStorage.set('players_last_up', lastup)
     commit('CHANGE_LASTUP', lastup)
     Notify.create({
-      message: 'Jogos Atualizados!',
+      message: 'Artilharia Atualizada!',
       position: 'center',
       color: 'secondary',
       timeout: 2000,

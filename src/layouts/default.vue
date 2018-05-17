@@ -42,6 +42,10 @@
           <q-item-side icon="fas fa-futbol" color="primary"/>
           <q-item-main label="Resultados" sublabel="Confira nosso placar" />
         </q-item>
+        <q-item @click.native="$router.replace('/players')">
+          <q-item-side icon="fas fa-trophy" color="primary"/>
+          <q-item-main label="Artilharia" sublabel="Confira nossos atletas" />
+        </q-item>
           <!-- <q-item @click.native="openURL('https://www.facebook.com/unidosDoFinal')">
             <q-item-side icon="fab fa-instagram" />
             <q-item-main label="Instagram" sublabel="Siga-nos" />
