@@ -3,8 +3,8 @@ import { orderBy } from 'lodash'
 import moment from 'moment'
 import { Loading, Notify, LocalStorage } from 'quasar'
 
-// const api = 'http://douglasporto.com.br/api/public/api/v1'
-const api = 'http://localhost/api/v1'
+const api = 'http://douglasporto.com.br/api/public/api/v1'
+// const api = 'http://localhost/api/v1'
 // export default {
 //   changeTime (context) {
 //     axios.get('/games').then(response => response.data).then(data => {

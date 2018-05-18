@@ -72,7 +72,9 @@ module.exports = function (ctx) {
         'QSpinner',
         'QSpinnerAudio',
         'QScrollArea',
-        'QCollapsible'
+        'QCollapsible',
+        'QItemTile',
+        'QItemSeparator'
       ],
       directives: [
         'Ripple',
