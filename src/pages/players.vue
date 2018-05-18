@@ -6,7 +6,7 @@
           Artilharia
           <div class="last_up">Última atualização: {{ date_last }}</div>
         </q-list-header>
-        <q-collapsible popup v-for="j in players" avatar="assets/players.png" :key="j.id" :label="j.nickname"  :sublabel="j.gols + ' gols'">
+        <q-collapsible popup v-for="j in players" avatar="statics/players.png" :key="j.id" :label="j.nickname"  :sublabel="j.gols + ' gols'">
           <!--<div>-->
           <!--  Nome: {{ j.name }}-->
           <!--</div>-->
