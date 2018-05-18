@@ -45,6 +45,11 @@ export const changePlayersApi = async ({ commit }) => {
     )
     // add players
     let payload = response.data
+    for (let i in payload) {
+      if (!isNaN(parseInt(payload[i].gols))) {
+        payload[i].gols = parseInt(payload[i].gols)
+      }
+    }
     payload = orderBy(payload, ['gols'], ['desc'])
     commit('CHANGE_PLAYERS', payload)
     LocalStorage.set('players', JSON.stringify(payload))

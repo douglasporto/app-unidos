@@ -23,6 +23,14 @@ export default {
       return this.$store.state.players.last_up_players
     }
   },
+  methods: {
+    refresher (done) {
+      setTimeout(() => {
+        done()
+        this.$store.dispatch('players/changePlayersApi')
+      }, 1000)
+    }
+  },
   mounted: function () {
     this.$store.dispatch('players/changePlayers')
   }
